@@ -299,7 +299,9 @@ if __name__ == '__main__':
     model = SVM(C=2.67, gamma=5.383)
     model.train(samples_train, labels_train)
     vis = evaluate_model(model, data_test, samples_test, labels_test)
-    cv2.imshow('SVM test', vis)
+    debug(vis, 'SVM test')
+    vis = evaluate_model(model, data_train[100:], samples_train[100:], labels_train[100:])
+    debug(vis, 'SVM test')
     print('saving SVM as "digits_svm.dat"...')
     model.save('digits_svm.dat')
 
